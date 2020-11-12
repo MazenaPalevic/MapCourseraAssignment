@@ -1,0 +1,18 @@
+---
+title: "Untitled"
+author: "Mazena"
+date: "11/12/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+## PLACES WHERE I LIVED
+```{r echo = FALSE} 
+library(leaflet)
+library(readxl)
+DF <- read_excel("DF.xlsx")
+home <- makeIcon("house.png", 18, 18)
+MyMap <- DF %>% leaflet() %>%  addTiles() %>% addMarkers(label = ~City, icon = home)
+MyMap
+````
+
